@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day! 💕</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Anime.js -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('img/background2.jpg') center center / cover no-repeat fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 238, 248, 0.7) 0%, rgba(255, 224, 240, 0.7) 50%, rgba(255, 201, 229, 0.7) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ============ WELCOME PAGE STYLES ============ */
+        #welcome-page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            max-height: 100vh;
+            padding: 20px;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        #main-page {
+            display: none;
+        }
+
+        .welcome-container {
+            text-align: center;
+            max-width: 600px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* Ảnh chú sóc hình trái tim */
+        .squirrel-heart-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto 30px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        .squirrel-heart-container::before,
+        .squirrel-heart-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: path('M225,35 C160,0 70,30 70,110 C70,180 120,230 225,320 C330,230 380,180 380,110 C380,30 290,0 225,35 Z');
+            background: rgba(255, 105, 180, 0.3);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .squirrel-heart-container::before {
+            animation: heartPulse1 2s ease-out infinite;
+        }
+
+        .squirrel-heart-container::after {
+            animation: heartPulse2 2s ease-out infinite 1s;
+        }
+
+        @keyframes heartPulse1 {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heartPulse2 {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 0.2;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .squirrel-heart-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            clip-path: path('M225,35 C160,0 70,30 70,110 C70,180 120,230 225,320 C330,230 380,180 380,110 C380,30 290,0 225,35 Z');
+            animation: wave 1.5s ease-in-out infinite, heartGlow 2s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes heartGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.6))
+                        drop-shadow(0 0 20px rgba(255, 105, 180, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 25px rgba(255, 105, 180, 0.8))
+                        drop-shadow(0 0 40px rgba(255, 105, 180, 0.6))
+                        drop-shadow(0 0 60px rgba(255, 105, 180, 0.3));
+            }
+        }
+
+        @keyframes heartGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.6))
+                        drop-shadow(0 0 20px rgba(255, 105, 180, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 25px rgba(255, 105, 180, 0.8))
+                        drop-shadow(0 0 40px rgba(255, 105, 180, 0.6))
+                        drop-shadow(0 0 60px rgba(255, 105, 180, 0.3));
+            }
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(-10deg);
+            }
+            75% {
+                transform: rotate(10deg);
+            }
+        }
+
+        /* Speech bubble */
+        .speech-bubble {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            animation: fadeInUp 1s ease-in 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid white;
+        }
+
+        .speech-bubble p {
+            font-size: 1.2rem;
+            color: #d63384;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Buttons container */
+        .welcome-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            animation: fadeInUp 1s ease-in 1s both;
+            flex-wrap: wrap;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .btn-yes:hover {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+        }
+
+        .btn-no {
+            background: #e0e0e0;
+            border: none;
+            color: #666;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Responsive welcome page */
+        @media (max-width: 768px) {
+            .squirrel-heart-container {
+                width: 320px;
+                height: 320px;
+            }
+
+            .speech-bubble p {
+                font-size: 1rem;
+            }
+
+            .btn-yes, .btn-no {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* ============ MAIN PAGE STYLES ============ */
+
+        /* Fade in animation khi load trang */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container chính */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            padding: 50px 20px;
+        }
+
+        /* Tiêu đề */
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ff1493;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Card chính */
+        .valentine-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .valentine-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(255, 105, 180, 0.4);
+        }
+
+        /* Văn bản mô tả */
+        .description {
+            font-size: 1.2rem;
+            color: #d63384;
+            text-align: center;
+            line-height: 1.8;
+            margin: 30px 0;
+            font-weight: 300;
+        }
+
+        /* Phần hình ảnh */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Overlay cho ảnh */
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(255, 105, 180, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        /* Nút */
+        .btn-valentine {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            border: none;
+            color: white;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            font-weight: 600;
+        }
+
+        .btn-valentine:hover {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+            color: white;
+        }
+
+        /* Hiệu ứng trái tim rơi */
+        .heart {
+            position: fixed;
+            top: -50px;
+            font-size: 20px;
+            color: #ff69b4;
+            opacity: 0.7;
+            animation: fall linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                top: 100vh;
+                transform: translateX(50px) rotate(360deg);
+            }
+        }
+
+        /* Icon trái tim trang trí */
+        .heart-icon {
+            color: #ff1493;
+            margin: 0 10px;
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.2);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #d63384;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+
+            .valentine-card {
+                padding: 20px;
+            }
+
+            .gift-box-wrapper {
+                max-width: 280px;
+            }
+
+            .gift-box-image {
+                border-radius: 15px;
+            }
+
+            .balloon {
+                width: 80px;
+                height: 100px;
+            }
+
+            .balloon::before {
+                height: 30px;
+                bottom: -20px;
+            }
+
+            .badge-valentine {
+                padding: 6px 15px;
+                font-size: 0.8rem;
+                margin: 3px;
+            }
+
+            .footer p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 0.9rem;
+            }
+
+            .valentine-card {
+                padding: 15px;
+            }
+
+            .gift-box-wrapper {
+                max-width: 240px;
+            }
+
+            .btn-valentine {
+                padding: 10px 30px;
+                font-size: 1rem;
+            }
+
+            .balloon {
+                width: 60px;
+                height: 80px;
+            }
+
+            .badge-valentine {
+                padding: 5px 12px;
+                font-size: 0.75rem;
+            }
+
+            .heart-icon {
+                font-size: 1rem;
+            }
+
+            .footer p {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Badge */
+        .badge-valentine {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+
+        /* Gift Box Styles */
+        .gift-box-container {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .gift-box-wrapper {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .gift-box-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .gift-box-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Flash Effect */
+        .flash-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            opacity: 0;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+        }
+
+        .flash-effect.active {
+            animation: flash 2s ease-out;
+        }
+
+        @keyframes flash {
+            0% {
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Balloons */
+        .balloons-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 120px;
+            height: 150px;
+            animation: floatUp linear;
+        }
+
+        .balloon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5);
+            border: 3px solid #ff69b4;
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 50px;
+            background: #ff69b4;
+        }
+
+        @keyframes floatUp {
+            0% {
+                bottom: -150px;
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                bottom: 120vh;
+                transform: translateX(var(--float-x)) rotate(var(--float-rotate));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Container trái tim rơi -->
+    <div id="hearts-container"></div>
+
+    <!-- ============ WELCOME PAGE ============ -->
+    <div id="welcome-page">
+        <div class="welcome-container">
+            <!-- Chú sóc vẫy tay trong hình trái tim -->
+            <div class="squirrel-heart-container">
+                <img src="img/Soc6.jpg" 
+                     alt="Squirrel Waving" 
+                     class="squirrel-heart-image"
+                     onerror="this.src='https://images.unsplash.com/photo-1607619662634-3ac55ec0e216?w=600&h=600&fit=crop'">
+            </div>
+
+            <!-- Speech bubble -->
+            <div class="speech-bubble">
+                <p>
+                    <strong>🐿️ Xin chào nàng tiểu thư,</strong><br>
+                    chủ nhân tôi có 1 món quà nhỏ tặng bạn,<br>
+                    bạn có muốn khám phá không?
+                </p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="welcome-buttons">
+                <button class="btn-yes" onclick="acceptGift()">
+                    💕 Có, tui đồng ý
+                </button>
+                <button class="btn-no" id="btnNo">
+                    😔 Khummmm
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MAIN VALENTINE PAGE ============ -->
+    <div id="main-page">
+        <!-- Nội dung chính -->
+        <div class="main-container fade-in">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Tiêu đề -->
+                    <h1 class="main-title">
+                        <i class="fas fa-heart heart-icon"></i>
+                        Happy Valentine's Day!
+                        <i class="fas fa-heart heart-icon"></i>
+                    </h1>
+
+                    <!-- Card chính -->
+                    <div class="valentine-card">
+                        <!-- Văn bản chào mừng -->
+                        <div class="description">
+                            💕 Trên đường băng học cách để yêu💕
+                        </div>
+
+                        <!-- Badges trang trí -->
+                        <div class="text-center mb-4">
+                            <span class="badge-valentine">Love</span>
+                            <span class="badge-valentine">Romance</span>
+                            <span class="badge-valentine">Sweet</span>
+                            <span class="badge-valentine">Forever</span>
+                        </div>
+
+                        <!-- Hinh anh hop qua -->
+                        <div class="gift-box-container text-center" id="giftBoxContainer">
+                            <div class="gift-box-wrapper">
+                                <img src="img/box1_static.jpg" 
+                                     alt="Gift Box" 
+                                     class="gift-box-image" 
+                                     id="giftBoxImage">
+                            </div>
+                            <button class="btn btn-valentine mt-4" id="btnOpenGift" onclick="openGiftBox()">
+                                <i class="fas fa-gift"></i> Bấm vào chiếc hộp nha
+                            </button>
+                        </div>
+
+                        <!-- Flash effect -->
+                        <div class="flash-effect" id="flashEffect"></div>
+
+                        <!-- Balloons container -->
+                        <div class="balloons-container" id="balloonsContainer"></div>
+
+                        <!-- Lời chúc -->
+                        <div class="text-center mt-5">
+                            <p style="font-size: 1.3rem; color: #d63384; font-style: italic;">
+                                "Chân thành có đổi được chân ái không nhờ 🤔🤔🤔"
+                            </p>
+                        </div>
+
+                        <!-- Nút hành động -->
+                        <div class="text-center mt-4">
+                            <button class="btn btn-valentine" onclick="showLoveMessage()">
+                                <i class="fas fa-heart"></i> Gửi lời yêu thương
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="footer">
+                        <p>
+                            <i class="fas fa-heart" style="color: #ff1493;"></i>
+                            Made with love by Kagamine
+                            <i class="fas fa-heart" style="color: #ff1493;"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ============ GIFT BOX LOGIC ============
+        let giftOpened = false;
+        
+        function openGiftBox() {
+            if (giftOpened) return;
+            giftOpened = true;
+            
+            const giftImg = document.getElementById('giftBoxImage');
+            const btnOpenGift = document.getElementById('btnOpenGift');
+            const flashEffect = document.getElementById('flashEffect');
+            const balloonsContainer = document.getElementById('balloonsContainer');
+            
+            // An button
+            btnOpenGift.style.display = 'none';
+            
+            // Doi sang gif
+            giftImg.src = 'img/box1.gif';
+            
+            // Sau 3 giay (thoi gian gif), bat dau hieu ung
+            setTimeout(() => {
+                // Flash effect
+                flashEffect.classList.add('active');
+                
+                setTimeout(() => {
+                    flashEffect.classList.remove('active');
+                }, 2000);
+                
+                // Tao bong bay
+                createBalloons();
+                
+                // An gif sau khi hieu ung xong
+                setTimeout(() => {
+                    giftImg.style.opacity = '0';
+                    giftImg.style.transition = 'opacity 1s ease';
+                }, 500);
+            }, 3000);
+        }
+        
+        let balloonInterval = null;
+        
+        function createBalloons() {
+            const balloonsContainer = document.getElementById('balloonsContainer');
+            const images = ['Chip1.jpg', 'Chip2.jpg', 'Chip3.jpg', 'Chip4.jpg', 'Chip5.jpg', 'Chip6.jpg', 'Chip7.jpg', 'Chip8.jpg', 'Chip9.jpg', 'Chip10.jpg', 'Chip11.jpg', 'Chip12.jpg'];
+            const balloonCount = 12; // 3 lan moi anh
+            
+            // Tao bong bay ban dau
+            for (let i = 0; i < balloonCount; i++) {
+                setTimeout(() => {
+                    createSingleBalloon(balloonsContainer, images);
+                }, i * 400); // Moi balloon cach nhau 400ms
+            }
+            
+            // Tiep tuc tao bong bay lien tuc
+            balloonInterval = setInterval(() => {
+                createSingleBalloon(balloonsContainer, images);
+            }, 2000); // Tao 1 bong bay moi moi 2s
+        }
+        
+        function createSingleBalloon(container, images) {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            
+            // Random anh
+            const imgSrc = images[Math.floor(Math.random() * images.length)];
+            
+            // Random vi tri
+            const left = Math.random() * 90 + 5; // 5-95%
+            const duration = Math.random() * 3 + 6; // 6-9s
+            const floatX = (Math.random() - 0.5) * 100; // -50 to 50px
+            const floatRotate = (Math.random() - 0.5) * 30; // -15 to 15 deg
+            const delay = Math.random() * 0.5;
+            
+            balloon.style.left = left + '%';
+            balloon.style.animationDuration = duration + 's';
+            balloon.style.animationDelay = delay + 's';
+            balloon.style.setProperty('--float-x', floatX + 'px');
+            balloon.style.setProperty('--float-rotate', floatRotate + 'deg');
+            
+            balloon.innerHTML = `<img src="img/${imgSrc}" alt="Balloon">`;
+            
+            container.appendChild(balloon);
+            
+            // Xoa balloon sau khi bay het
+            setTimeout(() => {
+                balloon.remove();
+            }, (duration + delay) * 1000 + 1000);
+        }
+
+        // ============ WELCOME PAGE LOGIC ============
+        
+        // Chuyen sang trang Valentine chinh
+        function acceptGift() {
+            const welcomePage = document.getElementById('welcome-page');
+            const mainPage = document.getElementById('main-page');
+            
+            // Them animation fade out cho welcome page
+            welcomePage.style.animation = 'fadeOut 0.5s ease-out';
+            
+            setTimeout(() => {
+                welcomePage.style.display = 'none';
+                mainPage.style.display = 'block';
+                mainPage.style.animation = 'fadeIn 1s ease-in';
+            }, 500);
+        }
+
+        // Hieu ung swap vi tri khi hover vao button "Khummmm"
+        document.addEventListener('DOMContentLoaded', () => {
+          const btnYes = document.querySelector('.btn-yes');
+          const btnNo = document.getElementById('btnNo');
+          const container = document.querySelector('.welcome-buttons');
+          
+          if (!btnYes || !btnNo || !container) return;
+          
+          let isSwapping = false;
+          
+          btnNo.addEventListener('mouseenter', () => {
+            if (isSwapping) return;
+            isSwapping = true;
+            
+            // Lay vi tri hien tai cua 2 button
+            const yesRect = btnYes.getBoundingClientRect();
+            const noRect = btnNo.getBoundingClientRect();
+            
+            // Tinh khoang cach can di chuyen
+            const yesX = noRect.left - yesRect.left;
+            const noX = yesRect.left - noRect.left;
+            
+            // Animate swap position
+            anime({
+              targets: btnYes,
+              translateX: yesX,
+              duration: 250,
+              easing: 'easeOutCubic'
+            });
+            
+            anime({
+              targets: btnNo,
+              translateX: noX,
+              duration: 250,
+              easing: 'easeOutCubic',
+              complete: () => {
+                // Sau khi animate xong, swap vi tri that su trong DOM
+                if (container.children[0] === btnYes) {
+                  container.appendChild(btnYes);
+                } else {
+                  container.insertBefore(btnYes, btnNo);
+                }
+                
+                // Reset transform
+                btnYes.style.transform = '';
+                btnNo.style.transform = '';
+                
+                isSwapping = false;
+              }
+            });
+          });
+        });
+        
+        function dodgeButton() {
+          // Keep for compatibility
+        }
+
+        // ============ MAIN PAGE LOGIC ============
+        
+        // Tao hieu ung trai tim roi
+        function createFallingHeart() {
+            const heartsContainer = document.getElementById('hearts-container');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['❤️', '💕', '💖', '💗', '💓', '💝'][Math.floor(Math.random() * 6)];
+            
+            // Vi tri ngau nhien
+            heart.style.left = Math.random() * 100 + 'vw';
+            
+            // Kich thuoc ngau nhien
+            const size = Math.random() * 15 + 15;
+            heart.style.fontSize = size + 'px';
+            
+            // Thoi gian roi ngau nhien
+            const duration = Math.random() * 5 + 5;
+            heart.style.animationDuration = duration + 's';
+            
+            // Do mo ngau nhien
+            heart.style.opacity = Math.random() * 0.5 + 0.3;
+            
+            heartsContainer.appendChild(heart);
+            
+            // Xoa trai tim sau khi roi xong
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+
+        // Tao trai tim lien tuc chi khi o trang chinh
+        setInterval(() => {
+            const mainPage = document.getElementById('main-page');
+            if (mainPage && mainPage.style.display !== 'none') {
+                createFallingHeart();
+            }
+        }, 300);
+
+        // Thong bao khi nhan nut
+        function showLoveMessage() {
+            const messages = [
+                "💕 Bé sóc cute number 1 🥰🥰🥰🥰",
+                "💖 Quen em là món quà tuyệt vời số 2 anh có trong năm nay 😁",
+                "💗 Liệu em có nghĩ mình vô tâm nhạt nhẽo không nhỉ...🥲",
+                "💓 Chưa có sáng nào thức dậy mà anh không nghĩ tới em hết á (❁´◡`❁)",
+                "💝 Cần chi phải chờ đến Valentine để bày tỏ cảm xúc bé nhờ☆*: .｡. o(≧▽≦)o .｡.:*☆",
+                "❤️ Thích em nhiều hơn cả thích mỳ cay nữa đó nha! 😍",
+                "💞 Anh mong mỗi ngày với em đều là Valentine 🥰",
+                "💖 Học cách quan tâm em hơn mỗi ngày, anh vẫn đang cố gắng từng chút một nhaaaaa",
+                "Quãng thời gian qua em đã vất vả ùi, anh biết em rất giỏi và mạnh mẽ 💪💪💪. Nhưng nếu có thể, anh muốn được cùng em đi tiếp chặng đường phía trước✨✨",
+                "💘 Anh không giỏi nói lời yêu thương đâu, nếu cảm xúc trong lòng nói được thay thì tốt quớ",
+                "Anh thích ngắm ảnh em cực kỳ luôn á, ảnh zo tri càng tốt, trừ filter con gà (｡♥‿♥｡)",
+                "Bình thường anh ít nhắn tin lắm, nhưng mà với em thì anh lại muốn kể linh tinh suốt ngày á (｡♥‿♥｡)",
+                "Giọng em ngọt á🥰🥰🥰",
+                "If someday the moon calls you by your name, don't be suprised. Because every night I tell her about you. 🌙💫",
+                "Đóa hoa Quỳnh đẹp nhất quả đất 🌸🌸🌸",
+                "Da bé sóc mướt ấy nhỉ:))) như cái bánh bao, muốn cắn một miếng quá đi thôi 🍑🍑🍑",
+                "EM ĂN CƠM CHƯAAAAAAA???🍚🍚🍚",
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            // Tao thong bao dep
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success text-center love-message-popup';
+            alertDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.8);
+                z-index: 10000;
+                padding: 30px 50px;
+                font-size: 1.5rem;
+                background: linear-gradient(135deg, #ff69b4, #ff1493);
+                color: white;
+                border: none;
+                border-radius: 20px;
+                box-shadow: 0 10px 40px rgba(255, 105, 180, 0.5);
+                opacity: 0;
+                max-width: 80%;
+            `;
+            alertDiv.innerHTML = randomMessage;
+            
+            document.body.appendChild(alertDiv);
+            
+            // Trigger animation sau khi element duoc add vao DOM
+            requestAnimationFrame(() => {
+                alertDiv.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+                alertDiv.style.opacity = '1';
+                alertDiv.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+            
+            // Xoa thong bao sau 3 giay
+            setTimeout(() => {
+                alertDiv.style.opacity = '0';
+                alertDiv.style.transform = 'translate(-50%, -50%) scale(0.8)';
+                setTimeout(() => alertDiv.remove(), 500);
+            }, 3000);
+        }
+
+        // Them animation fadeOut
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+                to {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0.8);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
